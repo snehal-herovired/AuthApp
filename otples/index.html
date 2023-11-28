@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/> 
+    <title>otpLess</title>
+</head>
+
+<body>
+    <div class="image">
+        <img src="logo.jpg" alt="Otpless"  width="180" height="85"/>
+        <button class="btn" >Subscribe</button>
+    </div>
+    
+<nav id="otp">
+    <div class="container">
+        <h1 class="welcome">Hi Welcome to otpless demo Site</h1>
+
+        <ul class="think">
+            <li>Some good job oppertunities in otpless</li>
+            <li>Some of vacancies in internship</li>
+            <li>Otpless is actively using 29 technologies for its website</li>
+            <li>These include Viewport Meta, IPhone / Mobile Compatible, and Google Analytics.</li>
+            <li>If you want more information so <strong class="clk">click down</strong></li>
+        </ul>
+    </div>
+ </nav>
+<div id="otpless"></div>
+
+    
+
+    <script type="text/javascript" src="https://otpless.com/auth.js"></script>
+    <!-- Get user's whatsapp number and name -->
+    <script type="text/javascript">
+        function otpless(otplessUser) {
+            var waName = otplessUser.waName;
+            var waNumber = otplessUser.waNumber;
+            // Signup/signin the user and redirect to next page
+
+            document.getElementById('otpless').innerHTML = `
+            <h2> Hi ${waName} Welcomec ! </h2>
+            <h2> solve this puzzle</h2>
+            <img src= "Mathematics Picture Quiz.jpg" width="300" height="200" />
+                `
+        }
+
+
+    </script>
+</body>
+
+</html>

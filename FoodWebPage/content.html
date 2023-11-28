@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Restaurant Search</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="script.js"></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+	<h1>Restaurant Search</h1>
+
+	<form id="search-form" action="#" method="get">
+		<label for="search-input">Search for restaurants:</label>
+		<input type="text" id="search-input" name="search-input" placeholder="Enter restaurant name...">
+		<button type="submit">Search</button>
+	</form>
+
+	<div id="restaurant-options"></div>
+
+</body>
+</html>
+<script>
+    $(document).ready(function() {
+	$('#search-form').submit(function(event) {
+		event.preventDefault(); // prevent default form submission behavior
+		var searchQuery = $('#search-input').val(); // get the user's search query
+		$.ajax({
+			type: 'POST', // use POST method to send search query to server
+			url: 'search.php', // replace with the URL of your server-side script
+			data: { search: searchQuery }, // send search query as POST data
+			dataType: 'json', // expect JSON data in response from server
+			success: function(data) {
+				// create HTML for restaurant options based on JSON data received from server
+				var optionsHTML = '';
+				for (var i = 0; i < data.length; i++) {
+					optionsHTML += '<a href="restaurant.php?id=' + data[i].id + '">' + data[i].name + '</a>';
+				}
+				// display restaurant options in the designated div element
+				$('#restaurant-options').html(optionsHTML);
+			}
+		});
+	});
+});
+
+</script>
